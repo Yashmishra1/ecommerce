@@ -13,7 +13,8 @@ const Splash = () => {
     }, [])
     const getData = () => {
         const email = storage.getString("EMAIL")
-        if (email !== '' || email !== undefined || email !== null) {
+        console.log("email", email)
+        if (email == '' || email == undefined || email == null) {
             navigation.navigate("Login")
             console.log("first")
         } else {
