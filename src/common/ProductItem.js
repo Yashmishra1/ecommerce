@@ -1,7 +1,7 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 
-const MyProduct = ({item}) => {
+const ProductItem = ({item, onAddToCart,onAddWishlist}) => {
   return (
     <View
       style={{
@@ -43,6 +43,9 @@ const MyProduct = ({item}) => {
         }}>
         <Text style={{fontSize: 18, fontWeight: 600}}>{'₹' + item.price}</Text>
         <TouchableOpacity
+        onPress={() => {
+          onAddToCart(item)
+        }}
           style={{
             borderWidth: 1,
             borderRadius: 10,
@@ -67,6 +70,8 @@ const MyProduct = ({item}) => {
           borderRadius : 20,
           justifyContent : "center",
           alignSelf: 'flex-end',
+        }} onPress={() => {
+          onAddWishlist(item)
         }}>
         <Image
           style={{width: 24, height: 24}}
@@ -77,4 +82,4 @@ const MyProduct = ({item}) => {
   );
 };
 
-export default MyProduct;
+export default ProductItem;
